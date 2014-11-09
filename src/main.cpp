@@ -118,8 +118,8 @@ int main (int argc, char *argv[])
   try {
     std::string s;
     if (vm.count("input-file")) {
-      std::string filename = vm["input-file"].as<std::string>();
-      std::ifstream input(filename.c_str(), std::ios_base::in);
+      auto filename = vm["input-file"].as<std::string>();
+      std::ifstream input(filename, std::ios_base::in);
       if (not input.is_open()) {
         std::cerr << "error: file " << filename << " not found\n";
         return 1;
